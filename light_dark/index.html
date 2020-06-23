@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link id="mystylesheet" rel="stylesheet" href="./light.css" />
+    <title>Light || Dark</title>
+  </head>
+  <body>
+    <div id="box">
+      <img id="profile_pic" src="images/IMG-20200610-WA0076.jpg" />
+      <h2>Hi, I'm Anas</h2>
+      <p>
+        I love coding, doing research and sharing what I learn with others :)
+      </p>
+      <hr />
+      <button class="btn btn-light" onclick="swapStyle('./light.css')">
+        Light Mode
+      </button>
+      <button class="btn btn-dark" onclick="swapStyle('./dark.css')">
+        Dark Mode
+      </button>
+    </div>
+
+    <script type="text/javascript">
+      let setTheme = localStorage.getItem("theme");
+      if (setTheme === null) {
+        swapStyle("light.css");
+      } else {
+        swapStyle(setTheme);
+      }
+
+      function swapStyle(sheet) {
+        document.getElementById("mystylesheet").href = sheet;
+        localStorage.setItem("theme", sheet);
+      }
+    </script>
+  </body>
+</html>
